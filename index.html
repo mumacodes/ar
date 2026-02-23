@@ -35,12 +35,12 @@
             --black: #0a0a0a;
             --black-light: #1a1a1a;
             --black-lighter: #2a2a2a;
-            --gold: #FFD700;
+            --gold: #d6b603;
             --gold-dark: #e6c300;
-            --gold-light: #fff0b3;
+            --gold-light: #ffcc00;
             --gold-glow: rgba(255, 215, 0, 0.5);
             --text-light: #f5f5f5;
-            --text-dim: #cccccc;
+            --text-dim: #e0e0e0;
         }
 
         body {
@@ -79,8 +79,8 @@
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(rgba(255, 215, 0, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 215, 0, 0.02) 1px, transparent 1px);
+                linear-gradient(rgba(255, 217, 0, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 217, 0, 0.099) 1px, transparent 1px);
             background-size: 60px 60px;
             pointer-events: none;
             z-index: -1;
@@ -291,35 +291,8 @@
             margin-left: 5px;
         }
 
-        /* شارة المشاركة */
-        .share-badge {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: var(--black-lighter);
-            backdrop-filter: blur(10px);
-            padding: 0.8rem 1.8rem;
-            border-radius: 60px;
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            z-index: 1000;
-            font-size: clamp(0.8rem, 3vw, 1rem);
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .share-badge:hover {
-            background: var(--gold);
-            color: var(--black);
-        }
-
-        .share-badge:hover i {
-            color: var(--black);
-        }
-
+      
+        
         /* تحسينات للشاشات الصغيرة */
         @media (max-width: 600px) {
             .gold-black-card {
@@ -367,11 +340,6 @@
 <body>
     <div class="grid-overlay"></div>
 
-    <!-- شارة المشاركة -->
-    <div class="share-badge" onclick="navigator.share? navigator.share({title:'MuMaCodes', url:window.location.href}) : alert('انسخ الرابط وشاركه')">
-        <i class="fas fa-share-alt"></i>
-        <span>شارك </span>
-    </div>
 
     <div class="container">
         <div class="gold-black-card">
@@ -430,20 +398,5 @@
         </div>
     </div>
 
-    <!-- إضافة خاصية النقر على زر المشاركة إن أمكن -->
-    <script>
-        // تحسين تجربة المشاركة
-        document.querySelector('.share-badge').addEventListener('click', function() {
-            if (navigator.share) {
-                navigator.share({
-                    title: 'MuMaCodes',
-                    text: 'انضم لأكبر مجتمع مبرمجين وطلاب عربي',
-                    url: window.location.href
-                });
-            } else {
-                alert('انسخ الرابط: ' + window.location.href);
-            }
-        });
-    </script>
 </body>
 </html>
